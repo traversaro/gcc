@@ -2224,7 +2224,7 @@ initialize_env (void)
   none = gomp_get_initial_icv_item (GOMP_DEVICE_NUM_FOR_NO_SUFFIX);
   initialize_icvs (&none->icvs);
 
-  for (env = environ; *env != 0; env++)
+  for (env = environ; environ != NULL && *env != 0; env++)
     {
       if (!startswith (*env, "OMP_"))
 	continue;
